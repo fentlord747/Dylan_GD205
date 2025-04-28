@@ -1,68 +1,65 @@
-class Player{
-  
-//These are my variables for the player
+class Player {
 
-int x;
-int y; 
-int w;
-int h;
-int speed;
+  //These are my variables for the player
 
-boolean isMovingLeft;
-boolean isMovingRight;
-boolean isMovingUp;
-boolean isMovingDown;
+  int x;
+  int y;
+  int w;
+  int h;
+  int speed;
 
-//These will be my constuctors 
+  boolean isMovingLeft;
+  boolean isMovingRight;
+  boolean isMovingUp;
+  boolean isMovingDown;
 
-Player(int startingX, int startingY, int startingW, int startingH){
+  //These will be my constuctors
 
-x = startingX;
-y = startingY;
-w = startingW;
-h = startingH;
+  Player(int startingX, int startingY, int startingW, int startingH) {
 
-isMovingLeft = false;
-isMovingRight = false;
-isMovingUp = false;
-isMovingDown = false;
+    x = startingX;
+    y = startingY;
+    w = startingW;
+    h = startingH;
 
-speed = 10;
+    isMovingLeft = false;
+    isMovingRight = false;
+    isMovingUp = false;
+    isMovingDown = false;
 
-}
+    speed = 10;
+  }
 
-//I will use render to render my player out
+  //I will use render to render my player out
 
-void render(){
-  pushMatrix();
-  rectMode(CENTER);
-  rect(x,y,w,h);
-  popMatrix();
- 
-}
+  void render() {
+    pushMatrix();
+    rectMode(CENTER);
+    rect(x, y, w, h);
+    popMatrix();
+  }
 
-//This is for the movment of my player
+  //This is for the movment of my player
 
-void move(){
-  if(isMovingLeft == true){
-    x -= speed;
-}
-  if(isMovingRight == true){
-    x += speed;
-}
-    if(isMovingUp == true){
-    y -= speed;
-}
-  if(isMovingDown == true){
-    y += speed;
-}
-  
-  x = constrain(x, w/2, width - w/2);
-  y = constrain(y, h/2, height - h/2);
-  
-  //My old constrain
-  //x = constrain(x, 25, 825 - this.w); 
-  //y = constrain(y, 25, 825 - this.h);
- 
-}
+  void move() {
+    if (isMovingLeft == true) {
+      x -= speed;
+    }
+    if (isMovingRight == true) {
+      x += speed;
+    }
+    if (isMovingUp == true) {
+      y -= speed;
+    }
+    if (isMovingDown == true) {
+      y += speed;
+    }
+
+    x = constrain(x, w/2, width - w/2);
+    y = constrain(y, h/2, height - h/2);
+
+    //My old constrain
+    //x = constrain(x, 25, 825 - this.w);
+    //y = constrain(y, 25, 825 - this.h);
+  }
 }
