@@ -1,8 +1,9 @@
 class Bullet{
-
-// These are my variables for the bullets
+//Old Variables 
 //int x;
 //int y; 
+
+// These Are My Variables For The Bullets
 PVector pos;
 PVector vel;
 int d;
@@ -10,16 +11,16 @@ int speed;
 boolean shouldRemove;
 
 //The constustor for my bullets
-Bullet(float startX, float startY, float targetX, float targetY) {
+  Bullet(float startX, float startY, float targetX, float targetY) {
   pos = new PVector(startX, startY);
   
 PVector dir = new PVector(targetX - startX, targetY - startY);
-    dir.normalize(); // Make it unit length
-    dir.mult(10);    // Set speed
- //This is the velocity of the bullet and direaction 
- vel = dir;
- //This is the diamter for the bullet
- d = 15;
+  dir.normalize(); // Make it unit length
+  dir.mult(10);    // Set speed
+//This is the velocity of the bullet and direaction 
+  vel = dir;
+//This is the diamter for the bullet
+  d = 15;
 //This is the check to see if the balls are in bounds
   shouldRemove = false;
   
@@ -33,8 +34,8 @@ void move(){
   
 }
 void checkRemove() {
-    if (pos.x < 0 || pos.x > width || pos.y < 0 || pos.y > height) {
-      shouldRemove = true;
+  if (pos.x < 0 || pos.x > width || pos.y < 0 || pos.y > height) {
+  shouldRemove = true;
     }
   }
 }

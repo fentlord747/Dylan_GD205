@@ -13,7 +13,6 @@ boolean isMovingRight;
 boolean isMovingUp;
 boolean isMovingDown;
 
-
 //These will be my constuctors 
 
 Player(int startingX, int startingY, int startingW, int startingH){
@@ -34,10 +33,6 @@ speed = 10;
 
 //I will use render to render my player out
 
-
-
-//I will use render to render my player out
-
 void render(){
   pushMatrix();
   rectMode(CENTER);
@@ -46,23 +41,21 @@ void render(){
  
 }
 
-
-
 //This is for the movment of my player
 
 void move(){
   if(isMovingLeft == true){
     x -= speed;
-  }
+}
   if(isMovingRight == true){
     x += speed;
-  }
+}
     if(isMovingUp == true){
     y -= speed;
-  }
+}
   if(isMovingDown == true){
     y += speed;
-  }
+}
   
   x = constrain(x, w/2, width - w/2);
   y = constrain(y, h/2, height - h/2);
