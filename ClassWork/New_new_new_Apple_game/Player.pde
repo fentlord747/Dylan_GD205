@@ -2,13 +2,13 @@ class Player {
   int x, y;
   int speed;
   boolean isMovingLeft, isMovingRight, isMovingUp, isMovingDown;
-  PImage sprite; 
-  // Constructor now uses a sprite instead of width/height
+  PImage sprite;
+
   Player(int startX, int startY, PImage img) {
     x = startX;
     y = startY;
     sprite = img;
-    speed = 10;
+    speed = 11;
 
     isMovingLeft = false;
     isMovingRight = false;

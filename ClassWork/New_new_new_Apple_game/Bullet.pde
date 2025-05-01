@@ -24,7 +24,7 @@ class Bullet {
     //This is the check to see if my balls are in bounds UwU
     shouldRemove = false;
   }
-
+//Erm 
   void render() {
     circle(pos.x, pos.y, d);
   }
