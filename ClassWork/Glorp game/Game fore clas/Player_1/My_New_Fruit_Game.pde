@@ -1,5 +1,6 @@
 //Declaring my vars
 Player P1;
+Stalker S1;
 int shot;
 //The bal
 ArrayList<Bullet> bulletList;
@@ -9,6 +10,7 @@ void setup() {
   fullScreen();
   noCursor();
   //Players postion at the start
+  S1 = new Stalker( width/2, height/2, 50,50);
   P1 = new Player(width/2, height/1, 50, 50);
   bulletList = new ArrayList<Bullet>();
 }
@@ -21,8 +23,10 @@ void draw() {
   textSize(250);
   stroke(0, 50, 255);
   text(shot, 0, 0);
+  S1.render();
   P1.render();
   P1.move();
+ 
 
   //This is to create the ball loop and to check if its in or out of bounds
   for (Bullet aBullet : bulletList) {
