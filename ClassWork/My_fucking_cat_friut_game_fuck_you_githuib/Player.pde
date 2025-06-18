@@ -1,7 +1,6 @@
 class Player {
 
   //These are my variables for the player
-
   int x;
   int y;
   int w;
@@ -27,16 +26,19 @@ class Player {
     isMovingUp = false;
     isMovingDown = false;
 
-    speed = 8;
+    speed = 5;
   }
 
   //I will use render to render my player out
 
   void render() {
+   
     pushMatrix();
+    fill(#5802AF);
     rectMode(CENTER);
     rect(x, y, w, h);
     popMatrix();
+    
   }
 
   //This is for the movment of my player
@@ -55,11 +57,13 @@ class Player {
       y += speed;
     }
 
-    x = constrain(x, w/2, width - w/2);
-    y = constrain(y, h/2, height - h/2);
+    //x = constrain(x, w/2, width - w/2);
+    //y = constrain(y, h/2, height - h/2);
 
-    //My old constrain
-    //x = constrain(x, 25, 825 - this.w);
-    //y = constrain(y, 25, 825 - this.h);
+
+
+  x = constrain(x, 580 + w / 2, 1400 - w / 2);
+  y = constrain(y, h / 2, height - h / 2);
+  
   }
 }

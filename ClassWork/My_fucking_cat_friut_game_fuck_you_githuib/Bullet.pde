@@ -5,23 +5,22 @@ class Bullet {
    int d;
    int speed;
    boolean shouldRemove;
+   PImage img;
    
    //constructor
-   Bullet(int startingX, int startingY){
-     x = startingX;
-     y = startingY;
-     
-     d = 20;
-     
-     speed =13;
-     
-     shouldRemove = false;
+   Bullet(int startingX, int startingY, PImage bulletImg){
+  x = startingX;
+  y = startingY;
+  d = 100;
+  speed = 10;
+  shouldRemove = false;
+  img = bulletImg; 
      
    }
    
    void render(){
-    circle(x,y,d);
-     
+    imageMode(CENTER);
+    image(img, x, y, d, d);
      
    }
    void move(){
