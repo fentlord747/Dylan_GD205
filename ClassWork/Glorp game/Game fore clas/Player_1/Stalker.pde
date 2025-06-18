@@ -4,13 +4,21 @@ class Stalk {
   int w;
   int h;
   int speed;
+   
+    Stalk(int startingX, int startingY, int startingW, int startingH) {
+
+    x = startingX;
+    y = startingY;
+    w = startingW;
+    h = startingH;
+
 }
 
 void render(){
    rectMode(CENTER);
-   rect(100,100,100,100);
-   color(2500);
+   rect(x, y, w, h);
+ 
    
   
-  
+}
 }
