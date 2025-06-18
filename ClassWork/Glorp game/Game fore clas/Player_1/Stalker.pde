@@ -1,4 +1,4 @@
-class Stalk {
+class Stalker {
   int x;
   int y;
   int w;
@@ -22,3 +22,4 @@ void render(){
   
 }
 }
+
