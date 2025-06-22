@@ -19,7 +19,7 @@ PImage img;
     
 }
 
-avoid move() {
+void move() {
   y += 3;
   if (y > height) {
   gameOver = true;
