@@ -1,11 +1,16 @@
-//Declaring my vars
+//Its pronouced gif not gif
+boolean gameOver = false;
 PImage peaImg;
 PImage cornImg;
+PImage RlorpImg;
+PImage GlorpImg;
 
-Stalk S1;
 Player P1;
+Rlorp R1;
+Glorp G1;
+
 int shot;
-//The bal
+//The balls
 ArrayList<Bullet> bulletList;
 
 void setup() {
@@ -16,38 +21,71 @@ void setup() {
    peaImg = loadImage("Pea.png");
    cornImg = loadImage("Corn.png");
    
-  //Players postion at the start
+   
+  //Postion of everthing at the start
   P1 = new Player(width/2, height/1, 50, 50);
+  R1 = new Rlorp(int(random(580 + 50, 1400 - 50)), -100, 100, 100);
+  G1 = new Glorp(int(random(580 + 100, 1400 - 100)), -200, 200, 200);
+  
   bulletList = new ArrayList<Bullet>();
-  S1 = new Stalk(width/2, height/2, 50, 50);
 }
 
   
   
 void draw() {
 
-  //This is for my score
+if (gameOver) {
+    background(0);
+    fill(255, 231, 32);
+    textSize(100);
+    textAlign(CENTER, CENTER);
+    text("Game Ova You Lose", width/2, height/2);
+    return;
+}
   
   background(0);
   
-  //textSize(250);
-  //stroke(0, 50, 255);
-  //text(shot, 0, 0);
  
   P1.render();
   P1.move();
   
-  S1.render();
+  G1.move();
+  G1.render();
 
-  //This is to create the ball loop and to check if its in or out of bounds
-  for (Bullet aBullet : bulletList) {
-    aBullet.render();
-    aBullet.move();
-    aBullet.checkRemove();
+  R1.move();
+  R1.render();
+
+
+
+//Checks if my balls 0w0 are off or on screen
+                    
+for (Bullet aBullet : bulletList){
+  aBullet.render();
+  aBullet.move();
+  aBullet.checkRemove();
+  
+  if (aBullet.img == peaImg){
+    if (dist(aBullet.x, aBullet.y, G1.x, G1.y) < (aBullet.d + G1.w)/2){
+      G1.x = int(random(580 + G1.w/2, 1400 - G1.w/2));
+      G1.y = -G1.h; // just above the screen
+      G1.w = 200;
+      G1.h = 200;
+    }
   }
+  
+  if (aBullet.img == cornImg){
+    if (dist(aBullet.x, aBullet.y, R1.x, R1.y) < (aBullet.d + R1.w)/2){
+      R1.x = int(random(580 + R1.w/2, 1400 - R1.w/2));
+      R1.y = -R1.h;
+      R1.w = 100;
+      R1.h = 100;
+    }
+  }
+}
 
   for (int i = bulletList.size()-1; i> - 0; i -=1) {
 }
+//My Lazy wall
 {
 beginShape();
  fill(#4382C4);
@@ -71,7 +109,7 @@ endShape(CLOSE);
 }
  
 
-//Check If THe Key Is Pressed
+//Key press check
 void keyPressed() {
   
   if (key == 'a') {
@@ -87,16 +125,16 @@ void keyPressed() {
     P1.isMovingDown = true;
   }
   if (key == 'g') {
-  bulletList.add(new Bullet(P1.x, P1.y, peaImg));
+  bulletList.add(new Bullet(P1.x, P1.y, peaImg));//Pea 
   shot++;
   }
    if (key == 'h') {
-    bulletList.add(new Bullet(P1.x, P1.y, cornImg)); // Shoot corn
+    bulletList.add(new Bullet(P1.x, P1.y, cornImg));//Corn
     shot++;
   }
 }
 
-//Check If The Key Is Released
+//Key releas check
 void  keyReleased() {
   if (key == 'a') {
     P1.isMovingLeft = false;
