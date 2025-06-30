@@ -32,13 +32,12 @@ class Player {
   //I will use render to render my player out
 
   void render() {
-   
+
     pushMatrix();
     fill(#5802AF);
     rectMode(CENTER);
     rect(x, y, w, h);
     popMatrix();
-    
   }
 
   //This is for the movment of my player
@@ -62,8 +61,7 @@ class Player {
 
 
 
-  x = constrain(x, 580 + w / 2, 1400 - w / 2);
-  y = constrain(y, h / 2, height - h / 2);
-  
+    x = constrain(x, 580 + w / 2, 1400 - w / 2);
+    y = constrain(y, h / 2, height - h / 2);
   }
 }
